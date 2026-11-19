@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>emlyon Global BBA - Online Test Practice</title>
+    <!-- Apply the saved theme before the first paint (no white flash). Keep in sync with src/lib/theme.ts. -->
+    <script>
+      (function () {
+        var pref = 'system';
+        try {
+          var raw = localStorage.getItem('emlyon-practice:v1:settings');
+          var t = raw ? JSON.parse(raw).theme : null;
+          if (t === 'light' || t === 'dark' || t === 'system') pref = t;
+        } catch (e) {}
+        var dark = pref === 'dark';
+        if (pref === 'system') {
+          try {
+            dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } catch (e) {}
+        }
+        var root = document.documentElement;
+        root.setAttribute('data-theme', dark ? 'dark' : 'light');
+        root.setAttribute('data-theme-pref', pref);
+      })();
+    </script>
+    <style>
+      html { background: #f4f6fa; }
+      html[data-theme='dark'] { background: #111419; color-scheme: dark; }
+    </style>
+    <script type="module" crossorigin src="./assets/index-Qzkvw6bS.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Dis8K2ve.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
